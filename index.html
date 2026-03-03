@@ -113,7 +113,6 @@
 </head>
 
 <body>
-    <!--Calculadora-->
     <div class="container">
         <div class="row">
             <div class="col-md-7">
@@ -125,11 +124,11 @@
                 <div class="tipo-selector">
                     <div class="d-flex gap-4">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tipo" id="independiente" onchange="cambiarTipo()">
+                            <input class="form-check-input" type="radio" name="tipo" id="independiente" checked onchange="cambiarTipo()">
                             <label class="form-check-label fw-bold" for="independiente">Independientes y Contratistas</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tipo" id="empresa" checked onchange="cambiarTipo()">
+                            <input class="form-check-input" type="radio" name="tipo" id="empresa" onchange="cambiarTipo()">
                             <label class="form-check-label fw-bold" for="empresa">Empresa y Dependientes</label>
                         </div>
                     </div>
@@ -139,13 +138,11 @@
                 
                 <table class="tabla-calculadora">
                     <tr class="total-row">
-                        <!--Salario-->
                         <td colspan="2" id="labelIngresos">Salario mensual / IBC</td>
                         <td>
                             <input type="text" id="salario" class="form-control" placeholder="$ 0" oninput="formatearMoneda(this); ejecutarCalculos()">
                         </td>
                     </tr>
-                    <!-- IBC para independientes -->
                     <tr class="total-row" id="filaIBC" style="display: none;">
                         <td colspan="2">Ingreso base cotización (IBC)</td>
                         <td>
@@ -153,20 +150,17 @@
                         </td>
                     </tr>
                     <tr class="total-row">
-                        <!-- Valor administración -->
                         <td colspan="2">Valor Administración</td>
                         <td>
                             <input type="text" id="valAdministracion" class="form-control" placeholder="$ 0" oninput="formatearMoneda(this); ejecutarCalculos()">
                         </td>
                     </tr>
                     <tr>
-                        <!-- Salud -->
                         <td class="bg-azul">Salud</td>
                         <td><select id="porcentajeSalud" class="form-select" onchange="ejecutarCalculos()"></select></td>
                         <td class="col-resultado"><span id="resultadoSalud">$ 0</span></td>
                     </tr>
                     <tr>
-                        <!-- Pensión -->
                         <td class="bg-azul">Pensión</td>
                         <td>
                             <select id="porcentajePension" class="form-select" onchange="ejecutarCalculos()">
@@ -177,13 +171,11 @@
                         <td class="col-resultado"><span id="resultadoPension">$ 0</span></td>
                     </tr>
                     <tr>
-                        <!-- FSP -->
                         <td class="bg-azul">FSP</td>
                         <td class="text-center"><span id="porcentajeFSPVisual" class="badge bg-secondary">0%</span></td>
                         <td class="col-resultado"><span id="resultadoFSP">$ 0</span></td>
                     </tr>
                     <tr>
-                        <!-- ARL -->
                         <td class="bg-azul">ARL</td>
                         <td>
                             <select id="porcentajeARL" class="form-select" onchange="ejecutarCalculos()">
@@ -198,15 +190,12 @@
                         <td class="col-resultado"><span id="resultadoARL">$ 0</span></td>
                     </tr>
                     <tr>
-                        <!-- CCF -->
                         <td class="bg-azul">CCF</td>
                         <td><select id="porcentajeCCF" class="form-select" onchange="ejecutarCalculos()"></select></td>
                         <td class="col-resultado"><span id="resultadoCCF">$ 0</span></td>
                     </tr>
-                    <!-- Parafiscales solo para empresa y dependientes -->
                     <tbody id="seccionParafiscales">
                         <tr>
-                            <!-- SENA -->
                             <td class="bg-azul">SENA</td>
                             <td>
                                 <select id="porcentajeSena" class="form-select" onchange="ejecutarCalculos()">
@@ -217,7 +206,6 @@
                             <td class="col-resultado"><span id="resultadoSena">$ 0</span></td>
                         </tr>
                         <tr>
-                            <!-- ICBF -->
                             <td class="bg-azul">ICBF</td>
                             <td>
                                 <select id="porcentajeIcbf" class="form-select" onchange="ejecutarCalculos()">
@@ -228,7 +216,6 @@
                             <td class="col-resultado"><span id="resultadoIcbf">$ 0</span></td>
                         </tr>
                     </tbody>
-                    <!-- Fila de total -->
                     <tr class="total-row">
                         <td colspan="2">TOTAL APORTES</td>
                         <td class="text-end"><span id="totalAporte">$ 0</span></td>
@@ -237,7 +224,6 @@
             </div>
         </div>
     </div>
-    <!-- JavaScript para cálculos y formateo -->
     <script>
         // Función para formatear el input como moneda
         function formatearMoneda(input) {
